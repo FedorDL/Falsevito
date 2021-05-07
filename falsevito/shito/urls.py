@@ -2,9 +2,10 @@ from django.conf.urls import url
 from django.urls import path
 from . import views
 
+app_name = 'shito'
 
 urlpatterns = [
-    path('', views.index, name='homepage'),
+    path('', views.index, name='index'),
     url(r'secure/', views.secure, name='secure'),
     path('ad/all/', views.ad_all, name='ad_all'),
     path('category/', views.category, name='category'),

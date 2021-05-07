@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание нового объявления</title>
+</head>
+<body>
+    {% if ad_with_errors %}
+        <p>Исправьте ошибки</p>
+    {% endif %}
+
+    {% if post_was_created %}
+        <p>Объявление создано</p>
+    {% endif %}
+  <form method="post", enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+      <button type="submit">Создать объявление</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Все объявления</title>
+</head>
+<body>
+<ul>
+  {% if ad_all %}
+    {% for ad in ad_all %}
+    <li>
+      <a href="{% url 'shito:ad_detail' ad.id %}">
+        <p> {{ ad.author }}</p>
+        <p> {{ ad.title }}</p>
+        <p> {{ ad.date_pub }}</p>
+        <img alt="ads image" src="{{ ad.image.url }}">
+        <p> {{ ad.descpition }}</p>
+      </a>
+    </li>
+    {% endfor %}
+</ul>
+  {% endif %}
+</body>
+</html>

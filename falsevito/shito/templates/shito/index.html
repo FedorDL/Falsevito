@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+    <p>Добро пожаловать на самый популярный сайт по размещению объявлений Shito!
+        <br>
+    Здесь вы сможете разместить для продажи вещи, а также купить то, что Вам необходимо!</p>
+    {% if index_ads %}
+        <ul>
+            {% for ad in index_ads %}
+                <li>
+                    <a href="{% url 'shito:ad_detail' ad.id %}">
+                        <p> {{ ad.author }}</p>
+                        <p> {{ ad.title }}</p>
+                        <p> {{ ad.date_pub }}</p>
+                        <img alt="ads image" src="{{ ad.image.url }}">
+                        <p> {{ ad.descpition }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
